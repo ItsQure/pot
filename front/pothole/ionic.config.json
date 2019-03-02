@@ -1,0 +1,8 @@
+{
+  "name": "pothole",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "dca2ace2"
+}
