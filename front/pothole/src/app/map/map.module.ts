@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { MapPage } from './map.page';
-import { AgmCoreModule } from '@agm/core';
+//import { AgmCoreModule } from '@agm/core';
 
 const routes: Routes = [
   {
@@ -21,11 +21,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    AgmCoreModule
+    //AgmCoreModule
   ],
   declarations: [MapPage]
 })
-export class MapPageModule {
-  lat:number = 51.678418;
-  lng:number = 7.809007; 
+export class MapPageModule { 
 }
