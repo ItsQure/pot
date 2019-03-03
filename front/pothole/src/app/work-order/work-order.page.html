@@ -15,16 +15,6 @@
 
     <br />
 
-    <!-- Picture Entry -->
-    <ion-label><strong> Picture </strong></ion-label>
-    <p>Please upload a clear picture of the pothole.<br /></p>
-    <ion-item>
-      <!-- Camera Access -->
-      <ion-input type="file" name="pic" accept="image/*"> </ion-input>
-    </ion-item>
-
-    <br />
-
     <!-- Description Entry -->
     <ion-label><strong>Description</strong></ion-label>
     <p>Enter a description of the pothole.<br /></p>
@@ -48,27 +38,27 @@
 
     <br />
 
+    <ion-list>
+      <ion-item *ngFor="let img of images; index as pos" text-wrap>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="img.path"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          {{ img.name }}
+        </ion-label>
+        <ion-button slot="end" fill="clear" (click)="startUpload(img)">
+          <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        </ion-button>
+        <ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
     <div class="submit">
       <ion-button>Submit Work Order</ion-button>
     </div>
   </form>
-
-  <ion-list>
-    <ion-item *ngFor="let img of images; index as pos" text-wrap>
-      <ion-thumbnail slot="start">
-        <ion-img [src]="img.path"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        {{ img.name }}
-      </ion-label>
-      <ion-button slot="end" fill="clear" (click)="startUpload(img)">
-        <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
-      </ion-button>
-      <ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
-        <ion-icon slot="icon-only" name="trash"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
 </ion-content>
 
 <ion-footer>
