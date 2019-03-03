@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Navigation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map class="map"></div>
+  <ion-button class="execute" fill="clear" expand="full" color="success" (click)="clickGoogleMap()">
+      <ion-icon name="navigate"></ion-icon>
+      Start Navigation (Google Map)
+  </ion-button>
+</ion-content>
+
+<ion-footer>
+      
+</ion-footer>

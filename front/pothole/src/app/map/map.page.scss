@@ -1,0 +1,22 @@
+ion-toolbar{
+    ion-button {
+        --box-shadow: 0;
+    }
+}
+
+.map {
+    height: 90%;
+  } 
+  
+.inner-scroll{
+    padding: 0 !important;
+}
+
+ion-button.execute{
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 0;
+    border: 1px solid;
+}
