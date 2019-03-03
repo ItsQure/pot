@@ -3,6 +3,7 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
 import {Router} from '@angular/router';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import {API_CONFIG} from './ENVIR_KEY';
+import {DataTransferService} from '../data-transfer.service';
 
 declare var google;
 @Component({
@@ -22,8 +23,10 @@ export class MapPage implements AfterViewInit {
     geo_code: any = [];
     //temp:
     listDests = ["810 Clinch Ave, Knoxville, TN 37902","1901 W Clinch Ave, Knoxville, TN 37916","2135 Cumberland Ave, Knoxville, TN 37916"];
-  
-    constructor(private geolocation: Geolocation, private router: Router, private iab: InAppBrowser) {
+    //listDests = [];
+
+    constructor(private geolocation: Geolocation, private router: Router, private iab: InAppBrowser, private data: DataTransferService) {
+      //this.listDests = this.data.storage
       const script = document.createElement('script');
       script.id = 'googleMap';
       if (this.apiKey) {
@@ -56,15 +59,7 @@ export class MapPage implements AfterViewInit {
           var opt = { minZoom: 10};
           this.map.setOptions(opt);
           
-          var current_pos = new google.maps.LatLng(this.mapCenter.lat, this.mapCenter.lng);          
-          /*
-          this.markerOptions.position = current_pos;
-          this.markerOptions.map = this.map;
-          this.markerOptions.title = 'My Location';
-          this.marker = new google.maps.Marker(this.markerOptions);
-          */
-
-          var example_address = "1109 Highland Ave. Apt 11302 Knoxville, TN";
+          var current_pos = new google.maps.LatLng(this.mapCenter.lat, this.mapCenter.lng);
           var directionsService = new google.maps.DirectionsService;
           var directionsDisplay = new google.maps.DirectionsRenderer;
           
@@ -144,6 +139,8 @@ export class MapPage implements AfterViewInit {
       }
     });
   }
+
+
 
   clickGoogleMap(){
     //var url = "https://www.google.com/maps/dir/35.9635325,-83.9178258/35.9733887,-83.9322847/35.9639804,-83.9360541/35.96306,-83.9516563/35.987854,-83.9785725/35.9749142,-83.977229";

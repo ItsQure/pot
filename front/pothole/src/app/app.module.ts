@@ -39,7 +39,8 @@ import { IonicStorageModule } from '@ionic/storage';
     Camera,
     File,
     WebView,
-    FilePath
+    FilePath,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })

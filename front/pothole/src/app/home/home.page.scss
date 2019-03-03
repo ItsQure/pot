@@ -15,19 +15,19 @@ ion-card {
 
 #text_blue {
   //material prime blue
-  color: #2980b9
+  color: #2900b9
 }
 
 #background_priority1 {
-  background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #98FB98 98%);
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 90%, #90FB90 90%);
 }
 
 #background_priority2 {
-  background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #2980b9 98%);
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 90%, #2900b9 90%);
 }
 
 #background_priority3 {
-  background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #f25454 98%);
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 90%, #f25454 90%);
 }
 
 .nav_bar{
@@ -37,4 +37,8 @@ ion-card {
   height: 50px;
   bottom: 0px;
   width: 100%;
+}
+
+.selection{
+  float: right;
 }
