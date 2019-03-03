@@ -8,90 +8,40 @@
 
 <ion-content padding>
 
-<div class = "home_cards">
+  <ion-list>
 
-<!-- FORMAT #1 -->
-<ion-card id = "background_priority3" (click)="somefuction()">
-  <ion-card-header>
-    <ion-card-subtitle id = "text_red" >Priority 3</ion-card-subtitle>
-    <ion-card-title>Civil Complaint</ion-card-title>
-  </ion-card-header>
+    <ng-container *ngIf="!todos || todos.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
 
-  <ion-card-content>
-    BIG ASS POTHOLE
-  </ion-card-content>
-</ion-card>
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+        <ion-label>
+          {{ item.task }}
+          <p>{{ item.createdAt | date:'short' }}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.priority }}</ion-note>
+      </ion-item>
 
-<ion-card id = "background_priority2"(click)="somefuction()">
-  <ion-card-header>
-    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
-    <ion-card-title>Work Order</ion-card-title>
-  </ion-card-header>
+      <ion-item-options side="end">
+        <ion-item-option (click)="remove(item)" color="secondary">
+          Check
+          <ion-icon name="checkmark" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
 
-  <ion-card-content>
-    4703 Central Avenue Pike, Knoxville, TN 37912
+  </ion-list>
 
-  </ion-card-content>
-</ion-card>
-
-<!-- FORMAT #2 -->
-<ion-card id = "background_priority1" (click)="somefuction()">
-  <ion-card-header>
-    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
-    <ion-card-title>Work Order</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    4703 Central Avenue Pike, Knoxville, TN 37912
-
-  </ion-card-content>
-</ion-card>
-
-<ion-card id = "background_priority3"(click)="somefuction()">
-  <ion-card-header>
-    <ion-card-subtitle id = "text_red" >Priority 3</ion-card-subtitle>
-    <ion-card-title>Civil Complaint</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    BIG ASS POTHOLE
-  </ion-card-content>
-</ion-card>
-
-<ion-card id = "background_priority2"(click)="somefuction()">
-  <ion-card-header>
-    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
-    <ion-card-title>Work Order</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    4703 Central Avenue Pike, Knoxville, TN 37912
-
-  </ion-card-content>
-</ion-card>
-</div>
-
-<div class = "nav_bar">
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-
-    <ion-tab-button tab="map">
-      <ion-icon name="map"></ion-icon>
-      <ion-label>Map</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="work-order" (click)="workorder_go()">
-      <ion-icon name="add-circle"></ion-icon>
-      <ion-label>Work Order</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="Completed">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
-      <ion-label>Completed Orders</ion-label>
-    </ion-tab-button>
-
-  </ion-tab-bar>
-</ion-tabs>
-</div>
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/details" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>

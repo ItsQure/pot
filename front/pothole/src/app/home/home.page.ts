@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Todo, TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private router: Router){
+  todos: Todo[];
 
+  constructor(private router: Router, private todoService: TodoService) { }
+
+  ngOnInit() {
+    this.todoService.getTodos().subscribe(res => {
+      this.todos = res;
+    });
+  }
+
+  remove(item) {
+    this.todoService.removeTodo(item.id);
   }
 
   workorder_go(){
