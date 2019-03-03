@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(private router: Router){
+
+  }
+
+  workorder_go(){
+    this.router.navigate(['work-order']);
+  }
+
+  completedorder_go(){
+    this.router.navigate(['completed-order']);
+  }
 
 }

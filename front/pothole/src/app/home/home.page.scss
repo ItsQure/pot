@@ -1,1 +1,40 @@
-
+ion-card {
+    //background-color: #ecf0f1; //
+    border: .7px solid grey;
+  }
+  
+  .home_cards{
+    position: relative;
+    margin-bottom: 60px;
+  }
+  
+  #text_red {
+    //danger red tint
+    color: #f25454
+  }
+  
+  #text_blue {
+    //material prime blue
+    color: #2980b9
+  }
+  
+  #background_priority1 {
+    background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #98FB98 98%);
+  }
+  
+  #background_priority2 {
+    background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #2980b9 98%);
+  }
+  
+  #background_priority3 {
+    background: linear-gradient(to right, #FFFFFF, #FFFFFF 97%, #f25454 98%);
+  }
+  
+  .nav_bar{
+    padding-top: 10px;
+    position: fixed;
+    left: 0px;
+    height: 50px;
+    bottom: 0px;
+    width: 100%;
+  }
