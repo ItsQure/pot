@@ -5,32 +5,23 @@
 </ion-header>
 
 <ion-content padding>
-  <form>
-    
+  <form (ngSubmit)="logForm()">
+
     <!--Address Entry -->
     <ion-item>
       <ion-label><strong>Address</strong></ion-label>
-      <ion-input type="addr" placeholder="Enter the address of the pothole"> </ion-input>
+      <ion-input required type="addr" name="address"
+      [(ngModel)]="tdot.address" placeholder="Enter the address of the pothole"> </ion-input>
     </ion-item>
 
-    <br />
-
-    <!-- Picture Entry -->
-    <ion-label><strong> Picture </strong></ion-label>    
-    <p>Please upload a clear picture of the pothole.<br /></p> 
-    <ion-item>
-      <!-- Camera Access -->
-      <ion-input type="file" name="pic" accept="image/*"> </ion-input>
-    </ion-item>
-    
     <br />
 
     <!-- Description Entry -->
     <ion-label><strong>Description</strong></ion-label>
     <p>Enter a description of the pothole.<br /></p>
     <ion-item>
-        <textarea rows="5" cols="50"></textarea>
-    </ion-item> 
+        <textarea name="description" [(ngModel)]="tdot.description" rows="5" cols="50"></textarea>
+    </ion-item>
 
     <br />
 
@@ -38,23 +29,43 @@
     <ion-label><strong> Priority </strong></ion-label>
     <p>Choose one of the priority options based on the pothole's severity.</p>
     <ion-item>
-      <select>
+      <select required name="priority" [(ngModel)]="tdot.priority">
         <option value="" disabled selected>Select your option</option>
         <option value= "major">1 (Major)</option>
         <option value= "average"> 2 (Average) </option>
-        <option value= "minor"> 3 (Minor) </option> 
+        <option value= "minor"> 3 (Minor) </option>
       </select>
     </ion-item>
 
     <br />
 
+    <ion-list>
+      <ion-item *ngFor="let img of images; index as pos" text-wrap>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="img.path"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          {{ img.name }}
+        </ion-label>
+        <!-- <ion-button slot="end" fill="clear" (click)="startUpload(img)">
+          <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        </ion-button> -->
+        <ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
     <div class="submit">
-      <ion-button>Submit Work Order</ion-button>
+      <ion-button type="submit">Submit Work Order</ion-button>
     </div>
   </form>
-
-
-
-      
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" expand="full" color="light" (click)="selectImage()">
+      <ion-icon slot="start" name="camera"></ion-icon>
+      Select Image</ion-button>
+  </ion-toolbar>
+</ion-footer>
