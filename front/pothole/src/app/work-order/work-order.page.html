@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Work Order Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    
+    <!--Address Entry -->
+    <ion-item>
+      <ion-label><strong>Address</strong></ion-label>
+      <ion-input type="addr" placeholder="Enter the address of the pothole"> </ion-input>
+    </ion-item>
+
+    <br />
+
+    <!-- Picture Entry -->
+    <ion-label><strong> Picture </strong></ion-label>    
+    <p>Please upload a clear picture of the pothole.<br /></p> 
+    <ion-item>
+      <!-- Camera Access -->
+      <ion-input type="file" name="pic" accept="image/*"> </ion-input>
+    </ion-item>
+    
+    <br />
+
+    <!-- Description Entry -->
+    <ion-label><strong>Description</strong></ion-label>
+    <p>Enter a description of the pothole.<br /></p>
+    <ion-item>
+        <textarea rows="5" cols="50"></textarea>
+    </ion-item> 
+
+    <br />
+
+    <!-- Priority Entry -->
+    <ion-label><strong> Priority </strong></ion-label>
+    <p>Choose one of the priority options based on the pothole's severity.</p>
+    <ion-item>
+      <select>
+        <option value="" disabled selected>Select your option</option>
+        <option value= "major">1 (Major)</option>
+        <option value= "average"> 2 (Average) </option>
+        <option value= "minor"> 3 (Minor) </option> 
+      </select>
+    </ion-item>
+
+    <br />
+
+    <div class="submit">
+      <ion-button>Submit Work Order</ion-button>
+    </div>
+  </form>
+
+
+
+      
+
+</ion-content>

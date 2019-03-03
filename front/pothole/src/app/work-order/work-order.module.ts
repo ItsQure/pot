@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { Component } from '@angular/core';
-import { MapPage } from './map.page';
-//import { AgmCoreModule } from '@agm/core';
+
+import { WorkOrderPage } from './work-order.page';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: MapPage
+    component: WorkOrderPage
   }
 ];
 
@@ -20,10 +20,13 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    //AgmCoreModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [MapPage]
+  declarations: [WorkOrderPage]
 })
-export class MapPageModule { 
-}
+export class WorkOrderPageModule {}
+
+
+
+
+

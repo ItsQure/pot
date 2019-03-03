@@ -1,14 +1,97 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Pothole finder
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your.
-  <ion-button color="light" (click)="go()"><ion-icon name="arrow-back"></ion-icon></ion-button>
 
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<div class = "home_cards">
+
+<!-- FORMAT #1 -->
+<ion-card id = "background_priority3" (click)="somefuction()">
+  <ion-card-header>
+    <ion-card-subtitle id = "text_red" >Priority 3</ion-card-subtitle>
+    <ion-card-title>Civil Complaint</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    BIG ASS POTHOLE
+  </ion-card-content>
+</ion-card>
+
+<ion-card id = "background_priority2"(click)="somefuction()">
+  <ion-card-header>
+    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
+    <ion-card-title>Work Order</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    4703 Central Avenue Pike, Knoxville, TN 37912
+
+  </ion-card-content>
+</ion-card>
+
+<!-- FORMAT #2 -->
+<ion-card id = "background_priority1" (click)="somefuction()">
+  <ion-card-header>
+    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
+    <ion-card-title>Work Order</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    4703 Central Avenue Pike, Knoxville, TN 37912
+
+  </ion-card-content>
+</ion-card>
+
+<ion-card id = "background_priority3"(click)="somefuction()">
+  <ion-card-header>
+    <ion-card-subtitle id = "text_red" >Priority 3</ion-card-subtitle>
+    <ion-card-title>Civil Complaint</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    BIG ASS POTHOLE
+  </ion-card-content>
+</ion-card>
+
+<ion-card id = "background_priority2"(click)="somefuction()">
+  <ion-card-header>
+    <ion-card-subtitle id = "text_blue">Priority 2</ion-card-subtitle>
+    <ion-card-title>Work Order</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    4703 Central Avenue Pike, Knoxville, TN 37912
+
+  </ion-card-content>
+</ion-card>
+</div>
+
+<div class = "nav_bar">
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="map">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Map</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="work-order" (click)="workorder_go()">
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>Work Order</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="Completed">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-label>Completed Orders</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+</div>
+
 </ion-content>
