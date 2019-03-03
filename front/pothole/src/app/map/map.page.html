@@ -8,7 +8,16 @@
   <!-- [latitude]="lat" [longitude]="lng" -->
   <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
   </agm-map> -->
-  <div id="map_canvas">
-    <ion-button ion-button (click)="onButtonClick()">Demo</ion-button>
-  </div>
+  <!-- <a target="_blank" button href="https://www.google.com/maps/dir/35.9635325,-83.9178258/35.9733887,-83.9322847/35.9639804,-83.9360541/35.96306,-83.9516563/35.987854,-83.9785725/@35.9749142,-83.977229,14.73z/data=!4m8!4m7!1m1!4e1!1m0!1m0!1m0!1m0!3e0">Call</a> -->
+  <!-- <a target="_blank" button href="https://www.google.com/maps/dir/35.9635325,-83.9178258/35.9733887,-83.9322847/35.9639804,-83.9360541/35.96306,-83.9516563/35.987854,-83.9785725/35.9749142,-83.977229">Call</a>  -->
+  <!-- <a button target="_system" href="geo:?q=35.9635325,-83.9178258/35.9733887,-83.9322847/35.9639804,-83.9360541/35.96306,-83.9516563/35.987854,-83.9785725/@35.9749142,-83.977229,14.73">Call</a> -->
+  <div #map class="map"></div>
+  <ion-button class="execute" fill="clear" expand="full" color="success" (click)="clickGoogleMap()">
+      <ion-icon name="navigate"></ion-icon>
+      Start Navigation (Google Map)
+  </ion-button>
 </ion-content>
+
+<ion-footer>
+      
+</ion-footer>

@@ -28,6 +28,7 @@ plugins/
 plugins/android.json
 plugins/ios.json
 $RECYCLE.BIN/
+ENVIR_KEY.ts
 
 .DS_Store
 Thumbs.db
