@@ -6,8 +6,10 @@ import { HttpClient } from '@angular/common/http';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { Storage } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path/ngx';
+import { NavController, LoadingController } from '@ionic/angular';
 
 import { finalize } from 'rxjs/operators';
+import { Todo, TodoService } from '../services/todo.service';
 
 const STORAGE_KEY = 'my_images';
 
@@ -17,18 +19,29 @@ const STORAGE_KEY = 'my_images';
   styleUrls: ['./work-order.page.scss'],
 })
 export class WorkOrderPage implements OnInit {
-
+  tdot = {};
+  todo: Todo = {
+    woDate: new Date().getTime().toString(),
+    woNum: "nAn",
+    priority: 1,
+    location: "unknown",
+    description: "pothole"
+  };
   images = [];
 
   constructor(private camera: Camera, private file: File, private http: HttpClient, private webview: WebView,
     private actionSheetController: ActionSheetController, private toastController: ToastController,
     private storage: Storage, private plt: Platform, private loadingController: LoadingController,
-    private ref: ChangeDetectorRef, private filePath: FilePath) { }
+    private ref: ChangeDetectorRef, private filePath: FilePath,
+    private todoService: TodoService, private nav: NavController) { }
 
   ngOnInit() {
     this.plt.ready().then(() => {
       this.loadStoredImages();
     });
+    // this.todoService.getTodos().subscribe(res => {
+    //   this.todo = res;
+    // });
   }
 
   loadStoredImages() {
@@ -166,5 +179,16 @@ export class WorkOrderPage implements OnInit {
         this.presentToast('File removed.');
       });
     });
+  }
+
+  logForm() {
+    this.todo["woNum"] = "rand";
+    this.todo["woDate"] = "nAn";
+    this.todo["description"] = this.tdot["description"];
+    this.todo["priority"] = this.tdot["priority"];
+    this.todo["address"] = this.tdot["address"];
+
+    this.todoService.addTodo(this.todo);
+    this.nav.navigateBack('home');
   }
 }

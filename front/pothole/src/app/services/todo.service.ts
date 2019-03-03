@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Todo {
-  woDate: string
-  woNum: string
-  priority: number
-  location: string
-  description: string
+  woDate?: string
+  woNum?: string
+  priority?: number
+  location?: string
+  description?: string
 }
 
 @Injectable({
