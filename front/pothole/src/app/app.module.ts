@@ -8,9 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {Geolocation} from '@ionic-native/geolocation/ngx';
-
-//import { AgmCoreModule } from '@agm/core'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,10 +16,8 @@ import {Geolocation} from '@ionic-native/geolocation/ngx';
   providers: [
     StatusBar,
     SplashScreen,
-    Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}
